@@ -23,7 +23,7 @@ public class FList<A> extends LinkedList<A> {
 
     public <B> B foldr(F<A, F<B, B>> f, final B acc) {
         B r = acc;
-        for (Integer x = l.size() - 1; x <= 0; x--) {
+        for (Integer x = l.size() - 1; x >= 0; x--) {
             r = f.apply(l.get(x)).apply(r);
         }
         return r;
