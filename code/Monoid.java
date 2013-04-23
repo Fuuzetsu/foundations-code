@@ -27,6 +27,10 @@ public final class Monoid<A> {
         return xs.foldr(product, unity);
     }
 
+    public A concat(FList<A> xs) {
+        return this.foldr(xs);
+    }
+
     public static <A> Monoid<A> monoid(final F<A, F<A, A>> product,
                                        final A unity) {
         return new Monoid<A>(product, unity);
