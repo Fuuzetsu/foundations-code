@@ -1,7 +1,8 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class FList<A> extends LinkedList {
+public class FList<A> extends LinkedList<A> {
+    private static final long serialVersionUID = 4242056756752307652L;
     private List<A> l;
 
     public FList(List<A> l) {
@@ -34,5 +35,9 @@ public class FList<A> extends LinkedList {
             xs.add(f.apply(y));
         }
         return xs;
+    }
+
+    public String toString() {
+        return l.toString();
     }
 }
