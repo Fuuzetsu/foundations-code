@@ -12,7 +12,7 @@ public class Usage {
 
         Monoid<Integer> intMon = Usage.intAddMonoid();
         Monoid<String> strMon = Usage.stringConcatMonoid();
-        Monoid<F<A, A>> compMon = Usage.funcMonoid();
+        Monoid<F<Integer, Integer>> compMon = Usage.funcMonoid();
 
         List<Integer> someInts = new LinkedList<Integer>();
         someInts.add(2);
@@ -33,6 +33,7 @@ public class Usage {
                         return x + y;
                     }
                 };
+                return f;
             }
         };
         return Monoid.monoid(add, 0);
@@ -47,6 +48,7 @@ public class Usage {
                         return x + y;
                     }
                 };
+                return f;
             }
         };
         return Monoid.monoid(concat, "");
@@ -57,7 +59,7 @@ public class Usage {
         F<F<A, A>, F<F<A, A>, F<A, A>>> comp =
             new F<F<A, A>, F<F<A, A>, F<A, A>>>() {
             public F<F<A, A>, F<A, A>> apply(final F<A, A> f) {
-                F<F<A, A>, F<A, A>> g = new F<A, A>() {
+                F<F<A, A>, F<A, A>> g = new F<F<A, A>, F<A, A>>() {
                     public F<A, A> apply(final F<A, A> h) {
                         return Function.compose(f, h);
                     }
