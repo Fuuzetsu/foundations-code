@@ -10,5 +10,6 @@ public class Function {
                 return f.apply(g.apply(x));
             }
         };
+        return h;
     }
 }

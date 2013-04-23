@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 public class Usage {
     public static void main(String[] args) {
         F<Object, Void> print = new F<Object, Void>() {
@@ -17,7 +20,7 @@ public class Usage {
         someInts.add(4);
         FList<Integer> integerList = new FList<Integer>(someInts);
         System.out.println(intMon.foldl(integerList));
-        print(intMon.foldl(integerList));
+        print.apply(intMon.foldl(integerList));
     }
 
 
