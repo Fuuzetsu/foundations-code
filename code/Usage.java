@@ -18,9 +18,25 @@ public class Usage {
         someInts.add(2);
         someInts.add(3);
         someInts.add(4);
+
         FList<Integer> integerList = new FList<Integer>(someInts);
-        System.out.println(intMon.foldl(integerList));
+        print.apply("Folding left: " + integerList);
         print.apply(intMon.foldl(integerList));
+        print.apply("Folding right: " + integerList);
+        print.apply(intMon.foldr(integerList));
+
+        List<String> someStrings = new LinkedList<String>();
+        someStrings.add("Why, ");
+        someStrings.add("hello ");
+        someStrings.add("world!");
+
+        FList<String> stringList = new FList<String>(someStrings);
+        print.apply("Folding left " + stringList);
+        print.apply(strMon.foldl(stringList));
+        print.apply("Folding right " + stringList);
+        print.apply(strMon.foldr(stringList));
+
+
     }
 
 
