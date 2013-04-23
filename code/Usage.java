@@ -1,5 +1,5 @@
 public class Usage {
-    public static main(String[] args) {
+    public static void main(String[] args) {
         F<Object, Void> print = new F<Object, Void>() {
             public Void apply(Object x) {
                 System.out.println(x);
@@ -15,7 +15,7 @@ public class Usage {
         someInts.add(2);
         someInts.add(3);
         someInts.add(4);
-        FList<Integer> integerList(someInts);
+        FList<Integer> integerList = new FList<Integer>(someInts);
         System.out.println(intMon.foldl(integerList));
         print(intMon.foldl(integerList));
     }
@@ -32,7 +32,7 @@ public class Usage {
                 };
             }
         };
-        return Monoid<Integer>.monoid(add, 0);
+        return Monoid.monoid(add, 0);
     }
 
     public static Monoid<String> stringConcatMonoid() {
@@ -46,11 +46,11 @@ public class Usage {
                 };
             }
         };
-        return Monoid<String>.monoid(concat, "");
+        return Monoid.monoid(concat, "");
     }
 
 
-    public <A> static Monoid<F<A, A>> funcMonoid {
+    public static <A> Monoid<F<A, A>> funcMonoid() {
         F<F<A, A>, F<F<A, A>, F<A, A>>> comp =
             new F<F<A, A>, F<F<A, A>, F<A, A>>>() {
             public F<F<A, A>, F<A, A>> apply(final F<A, A> f) {
@@ -67,7 +67,7 @@ public class Usage {
             public A apply(final A x) {
                 return x;
             }
-        }
-        return Monoid<F<A, A>>.monoid(comp, id);
+        };
+        return Monoid.monoid(comp, id);
     }
 }

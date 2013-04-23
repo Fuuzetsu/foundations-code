@@ -4,11 +4,11 @@ import java.util.List;
 public class FList<A> extends LinkedList {
     private List<A> l;
 
-    public FList<A>(List<A> l) {
+    public FList(List<A> l) {
         this.l = l;
     }
 
-    public Flist<A>() {
+    public FList() {
         this.l = new LinkedList<A>();
     }
 
